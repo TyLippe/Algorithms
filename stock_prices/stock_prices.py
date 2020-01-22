@@ -3,7 +3,19 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  #define max profit
+  max_profit = float('-inf')
+  #loop through list of profits
+  for i in range(0, len(prices) - 1): 
+    #loop through the profits before the current
+    for j in range(0, i):
+      #find difference of each index that comes before current index
+      total = prices[i] - prices [j]
+      if total > max_profit:
+      #if the difference is higher to prior differences, reiterate max_profit
+        max_profit = total
+  #return max profit
+  return max_profit
 
 
 if __name__ == '__main__':
