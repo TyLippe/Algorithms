@@ -18,7 +18,7 @@ def eating_cookies(n, cache=cache):
     else:
         # I did three based off three cookies most at once. 
         #recursively call our function, until we find 3 values that are already cached, while caching those. Trippy 
-        cache[n] = eating_cookies(n-1, cache) + eating_cookies(n-2, cache) + eating_cookies(n-3, cache)
+        cache[n] = eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
     return cache[n]
     
 
