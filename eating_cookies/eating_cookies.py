@@ -2,11 +2,25 @@
 
 import sys
 
+#add cache to shorten runtime
+cache = {0:1, 1:1, 2:2, 5:13}
 # The cache parameter is here for if you want to implement
 # a solution that is more efficient than the naive 
 # recursive solution
-def eating_cookies(n, cache=None):
-  pass
+def eating_cookies(n, cache=cache):
+    # base case
+    if n == 0 or n == 1: 
+        return 1
+    # if n is in the cache already, return the value
+    elif n in cache:
+        return cache[n]
+    #if not we will add it to cache
+    else:
+        # I did three based off three cookies most at once. 
+        #recursively call our function, until we find 3 values that are already cached, while caching those. Trippy 
+        cache[n] = eating_cookies(n-1, cache) + eating_cookies(n-2, cache) + eating_cookies(n-3, cache)
+    return cache[n]
+    
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
