@@ -3,7 +3,23 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  #define amount that can be made
+  amount = float('inf')
+  #check if we have the right ingredients or enough, if not return 0
+  for i, j in recipe.items():
+    if not i in ingredients.keys() or ingredients[i] - j < 0:
+      return 0
+  #loop over dict to compare recipe to ingredient 
+  for i, j in recipe.items():
+    #create a temp storage to compare to amount
+    temp = 0
+    #math how many times our ingredients can be used
+    temp = ingredients[i] // j
+    if temp < amount:
+        #if temp is less than keep that temp number
+        amount = temp
+  #return the amount 
+  return amount
 
 
 if __name__ == '__main__':
